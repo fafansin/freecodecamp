@@ -1,12 +1,19 @@
-function sumAll(arr) {
-  const sorted = arr.sort((a,b) => (a-b));
-  console.log(sorted);
-  let sum = 0;
-  for(let i=sorted[0]; i <= sorted[1]; i++){
-    sum += i;
+function diffArray(arr1, arr2) {
+  const merged = [...arr1, ...arr2];
+  const filtered =  merged.filter((item, index, self) => (self.indexOf(item) != index));
+  const newArr = [];
+  for(let item of merged) {
+    let found = false;
+    for(let fil of filtered){
+      if(item == fil){
+        found = true;
+      }
+    }
+    if(found == false){
+      newArr.push(item);
+    }
   }
-  return sum;
-  
+  return newArr;
 }
 
-console.log(sumAll([10, 5]));
+console.log(diffArray(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));

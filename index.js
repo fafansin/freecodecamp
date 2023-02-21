@@ -1,15 +1,30 @@
 /**
- * We'll pass you an array of two numbers. Return the sum of those two numbers plus the sum of all the numbers between them. The lowest number will not always come first.
-For example, sumAll([4,1]) should return 10 because sum of all the numbers between 1 and 4 (both inclusive) is 10.
+ * Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. 
+ * In other words, return the symmetric difference of the two arrays.
+ * Note: You can return the array with its elements in any order.
  */
-function sumAll(arr){
-    const list = arr.sort((a,b) => a-b);
-    
-    let sum = 0;
-    for(let i = arr[0]; i <= arr[1]; i++){
-        sum += i;
-    }
-    console.log(sum)
-}
 
-sumAll([10,5]);
+function diffArray(arr1, arr2) {
+    const newArr = [...arr1, ...arr2];
+
+    return newArr.reduce((unique, item, index, arr) => {
+        console.log(item);
+        console.log('Current Index: ' + index);
+        console.log('Index Of: ' + arr.indexOf(item))
+        unique.push(item);
+        return unique;
+    }, [])
+
+    // return newArr.filter((item, index, arr) => {
+    //     if(arr.indexOf(item) != index){
+    //         return item;
+    //     }
+    //     console.log(arr.indexOf(item));
+
+    //     // console.log(item);
+    // })
+    
+    // return newArr;
+  }
+  
+  console.log(diffArray(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));

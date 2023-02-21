@@ -6,25 +6,23 @@
 
 function diffArray(arr1, arr2) {
     const newArr = [...arr1, ...arr2];
-
-    return newArr.reduce((unique, item, index, arr) => {
-        console.log(item);
-        console.log('Current Index: ' + index);
-        console.log('Index Of: ' + arr.indexOf(item))
-        unique.push(item);
-        return unique;
-    }, [])
-
-    // return newArr.filter((item, index, arr) => {
-    //     if(arr.indexOf(item) != index){
-    //         return item;
-    //     }
-    //     console.log(arr.indexOf(item));
-
-    //     // console.log(item);
-    // })
+    const ref = [];
+    for(let i=0; i < newArr.length; i++){
+        let item = newArr[i];
+        let found = false;
+        for(let j = 0; j< newArr.length; j++){
+            if(item == newArr[j] && i != j){
+                found = true;
+                break;
+            }
+        }
+        if(!found){
+            ref.push(item);
+        }
+    }
+    return ref;
     
-    // return newArr;
   }
   
   console.log(diffArray(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));
+//   console.log(diffArray(["a", "b", "c"], ["a", "c"]));

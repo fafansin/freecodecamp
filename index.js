@@ -1,26 +1,19 @@
 /**
- *  Search and Replace
+ *  DNA Pairing
  * 
- * Perform a search and replace on the sentence using the arguments provided and return the new sentence.
+ * Pairs of DNA strands consist of nucleobase pairs. 
+ * Base pairs are represented by the characters AT and CG, which form building blocks of the DNA double helix.
  * 
- * First argument is the sentence to perform the search and replace on.
- * Second argument is the word that you will be replacing (before).
- * Third argument is what you will be replacing the second argument with (after).
- * Note: Preserve the case of the first character in the original word when you are replacing it. 
- * For example if you mean to replace the word Book with the word dog, it should be replaced as Dog
+ * The DNA strand is missing the pairing element. 
+ * Write a function to match the missing base pairs for the provided DNA strand. 
+ * For each character in the provided string, find the base pair character. Return the results as a 2d array.
+ * 
+ * For example, for the input GCG, return [["G", "C"], ["C","G"], ["G", "C"]]
+ * The character and its pair are paired up in an array, and all the arrays are grouped into one encapsulating array.
  */
 
-function myReplace(str, before, after) {
-    return str.split(/\W/g).reduce((ref, word, index, arr) => {
-        if(word.toLowerCase() != before.toLowerCase()){
-            ref += word;
-        }else{
-            ref += /^[A-Z]/.test(word) ? after[0].toUpperCase() + after.substring(1) : after[0].toLowerCase() + after.substring(1);
-        }
-        return ref += index != arr.length-1 ? ' ' : '';
-    },'');
-    
-    
+function pairElement(str) {
+    return str;
   }
   
-  console.log(myReplace("Let us go to the store", "store", "mall"));
+  console.log(pairElement("GCG"));

@@ -11,7 +11,16 @@
  */
 
 function myReplace(str, before, after) {
-    return str;
+    return str.split(/\W/g).reduce((ref, word, index, arr) => {
+        if(word.toLowerCase() != before.toLowerCase()){
+            ref += word;
+        }else{
+            ref += /^[A-Z]/.test(word) ? after[0].toUpperCase() + after.substring(1) : after[0].toLowerCase() + after.substring(1);
+        }
+        return ref += index != arr.length-1 ? ' ' : '';
+    },'');
+    
+    
   }
   
-  console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));
+  console.log(myReplace("Let us go to the store", "store", "mall"));

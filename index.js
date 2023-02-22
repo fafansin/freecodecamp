@@ -1,28 +1,16 @@
 /**
- * Compare two arrays and return a new array with any items only found in one of the two given arrays, but not both. 
- * In other words, return the symmetric difference of the two arrays.
- * Note: You can return the array with its elements in any order.
+ * You will be provided with an initial array (the first argument in the destroyer function), 
+ * followed by one or more arguments. Remove all elements from the initial array that are of the same value as these arguments.
+ * Note: You have to use the arguments object.
  */
-
-function diffArray(arr1, arr2) {
-    const newArr = [...arr1, ...arr2];
-    const ref = [];
-    for(let i=0; i < newArr.length; i++){
-        let item = newArr[i];
-        let found = false;
-        for(let j = 0; j< newArr.length; j++){
-            if(item == newArr[j] && i != j){
-                found = true;
-                break;
-            }
-        }
-        if(!found){
-            ref.push(item);
-        }
-    }
-    return ref;
+function destroyer(...args) {
+    let items = args.shift();
     
-  }
+    for(let arg of args){
+        items = items.filter(item => item != arg)
+    }
+    
+    return items;
+}
   
-  console.log(diffArray(["diorite", "andesite", "grass", "dirt", "pink wool", "dead shrub"], ["diorite", "andesite", "grass", "dirt", "dead shrub"]));
-//   console.log(diffArray(["a", "b", "c"], ["a", "c"]));
+  console.log(destroyer([1, 2, 3, 1, 2, 3], 2, 3));

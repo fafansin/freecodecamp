@@ -1,29 +1,17 @@
 /**
- *  Pig Latin
+ *  Search and Replace
  * 
- *  Pig Latin is a way of altering English Words. The rules are as follows:
- *  - If a word begins with a consonant, take the first consonant or consonant cluster, move it to the end of the word, and add ay to it.
- *  - If a word begins with a vowel, just add way at the end.
+ * Perform a search and replace on the sentence using the arguments provided and return the new sentence.
  * 
- * Translate the provided string to Pig Latin. Input strings are guaranteed to be English words in all lowercase.
+ * First argument is the sentence to perform the search and replace on.
+ * Second argument is the word that you will be replacing (before).
+ * Third argument is what you will be replacing the second argument with (after).
+ * Note: Preserve the case of the first character in the original word when you are replacing it. 
+ * For example if you mean to replace the word Book with the word dog, it should be replaced as Dog
  */
-function translatePigLatin(str) {
-    const matches = str.match(/[aeiou]/);
-    if(matches){
-        const ind = matches.index;
-        if(ind == 0){
-            return `${str}way`;
-        }else{
-            return `${str.substring(ind)}${str.substring(0,ind)}ay`;
-        }
-    }
-    
-    return `${str}ay`;
+
+function myReplace(str, before, after) {
+    return str;
   }
   
-  console.log(translatePigLatin("california"));
-  console.log(translatePigLatin("paragraphs"));
-  console.log(translatePigLatin("glove"));
-  console.log(translatePigLatin("algorithm"));
-  console.log(translatePigLatin("schwartz"));
-  console.log(translatePigLatin("rhythm"));
+  console.log(myReplace("A quick brown fox jumped over the lazy dog", "jumped", "leaped"));

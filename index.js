@@ -12,7 +12,22 @@
  * because it contains the name and its value, that was passed on as the second argument.
  */
 function whatIsInAName(collection, source) {
+    const total = Object.keys(source).length;
+    return collection.reduce((ref, item) => {
+            let counter = 0;
+            for(const key in source){
+                if(item.hasOwnProperty(key) && item[key] == source[key]){
+                    counter++;
+                }
+            }
+            if(counter == total){
+                ref.push(item);
+            }
+        
+        return ref;
+    }, [])
 
 }
 
-whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" });
+console.log(whatIsInAName([{ first: "Romeo", last: "Montague" }, { first: "Mercutio", last: null }, { first: "Tybalt", last: "Capulet" }], { last: "Capulet" }));
+console.log(whatIsInAName([{ "apple": 1, "bat": 2 }, { "apple": 1 }, { "apple": 1, "bat": 2, "cookie": 2 }], { "apple": 1, "cookie": 2 }));

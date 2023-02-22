@@ -8,7 +8,22 @@
  * Translate the provided string to Pig Latin. Input strings are guaranteed to be English words in all lowercase.
  */
 function translatePigLatin(str) {
-    return str;
+    const matches = str.match(/[aeiou]/);
+    if(matches){
+        const ind = matches.index;
+        if(ind == 0){
+            return `${str}way`;
+        }else{
+            return `${str.substring(ind)}${str.substring(0,ind)}ay`;
+        }
+    }
+    
+    return `${str}ay`;
   }
   
-  console.log(translatePigLatin("consonant"));
+  console.log(translatePigLatin("california"));
+  console.log(translatePigLatin("paragraphs"));
+  console.log(translatePigLatin("glove"));
+  console.log(translatePigLatin("algorithm"));
+  console.log(translatePigLatin("schwartz"));
+  console.log(translatePigLatin("rhythm"));

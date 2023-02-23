@@ -1,33 +1,15 @@
 /**
- *  Sum All Odd Fibonacci Numbers
+ *  Sum All Primes
  * 
- * Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+ *  A prime number is a whole number greater than 1 with exactly two divisors: 1 and itself. 
+ * For example, 2 is a prime number because it is only divisible by 1 and 2. 
+ * In contrast, 4 is not prime since it is divisible by 1, 2 and 4.
  * 
- * The first two numbers in the Fibonacci sequence are 1 and 1. 
- * Every additional number in the sequence is the sum of the two previous numbers. 
- * The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8.
- * 
- * For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than or equal to 10 are 1, 1, 3, and 5.
+ * Rewrite sumPrimes so it returns the sum of all prime numbers that are less than or equal to num.
  */
 
-function sumFibs(number) {
-  let n1 = 0; 
-  let n2 = 1;
-  let next;
-  let sum = 0;
-
-  while(n2 <= number){
-
-    next =  n1 + n2;
-    n1 = n2;
-    n2 = next;
-    
-    if(n1 %2 > 0){
-      console.log(n1);
-      sum += n1;
-    }
-  }
-  return sum;
+function sumPrimes(num) {
+  return num;
 }
 
-console.log('answer ', sumFibs(10));
+console.log(sumPrimes(10));

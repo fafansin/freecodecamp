@@ -9,10 +9,13 @@ function convertHTML(str) {
           '&' : '&amp;', 
           '<' : '&lt;',
           '>' : '&gt;',
+          "'" : '&apos;',
           '"' : '&quot;'
         }
-  
-  return str.includes('&') ? str.replace('&', ref['&']) : str;
+  return Object.keys(ref).reduce((final, item) => {
+    return final.replaceAll(item, ref[item]);
+  }, str);
 }
 
 console.log(convertHTML("Dolce & Gabbana"));
+console.log(convertHTML("Hamburgers < Pizza < Tacos"));

@@ -13,7 +13,29 @@
  */
 
 function pairElement(str) {
-    return str;
+    const main = str.split('');
+    return main.reduce((items, item) => {
+      items.push([item, getElement(item)]);
+      return items;
+    }, [])
+    
+    return main;
+}
+function getElement(char){
+  switch(char){
+    case "A":
+      return "T";
+    break;
+    case "T":
+      return "A";
+    break;
+    case "C":
+      return "G";
+    break;
+    case "G":
+      return "C";
+    break;
   }
+}
   
   console.log(pairElement("GCG"));

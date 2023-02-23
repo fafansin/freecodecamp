@@ -1,21 +1,17 @@
 /**
- *  Convert HTML Entities
+ *  Sum All Odd Fibonacci Numbers
  * 
- * Convert the characters &, <, >, " (double quote), and ' (apostrophe), in a string to their corresponding HTML entities.
+ * Given a positive integer num, return the sum of all odd Fibonacci numbers that are less than or equal to num.
+ * 
+ * The first two numbers in the Fibonacci sequence are 1 and 1. 
+ * Every additional number in the sequence is the sum of the two previous numbers. 
+ * The first six numbers of the Fibonacci sequence are 1, 1, 2, 3, 5 and 8.
+ * 
+ * For example, sumFibs(10) should return 10 because all odd Fibonacci numbers less than or equal to 10 are 1, 1, 3, and 5.
  */
 
-function convertHTML(str) {
-  const ref = {
-          '&' : '&amp;', 
-          '<' : '&lt;',
-          '>' : '&gt;',
-          "'" : '&apos;',
-          '"' : '&quot;'
-        }
-  return Object.keys(ref).reduce((final, item) => {
-    return final.replaceAll(item, ref[item]);
-  }, str);
+function sumFibs(num) {
+  return num;
 }
 
-console.log(convertHTML("Dolce & Gabbana"));
-console.log(convertHTML("Hamburgers < Pizza < Tacos"));
+sumFibs(4);

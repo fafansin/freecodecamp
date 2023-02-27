@@ -1,18 +1,16 @@
 /**
- *  Everything Be True
+ *  Arguments Optional
  * 
- *  Check if the predicate (second argument) is truthy on all elements of a collection (first argument).
- *  In other words, you are given an array collection of objects. 
- *  The predicate pre will be an object property and you need to return true if its value is truthy. Otherwise, return false.
+ *  Create a function that sums two arguments together. If only one argument is provided, 
+ *  then return a function that expects one argument and returns the sum.
  * 
- *  In JavaScript, truthy values are values that translate to true when evaluated in a Boolean context.
+ *  For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.
  * 
- *  Remember, you can access object properties through either dot notation or [] notation.
+ *  Calling this returned function with a single argument will then return the sum:
  */
 
-function truthCheck(collection, pre) {
-  
-  return collection.every(item => item[pre]);
+function addTogether() {
+  return false;
 }
 
-console.log(truthCheck([{name: "Quincy", role: "Founder", isBot: false}, {name: "Naomi", role: "", isBot: false}, {name: "Camperbot", role: "Bot", isBot: true}], "name"));
+console.log(addTogether(2,3));

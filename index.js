@@ -17,6 +17,7 @@ function smallestCommons(arr) {
   for(let num = sorted[0]; num <= sorted[1]; num++){
     nums.push(num);
   }
+  let idx = 0;
   let min = nums[0];
   let passed = false;
 
@@ -25,7 +26,8 @@ function smallestCommons(arr) {
       passed = true;
       return min;
     }
-    min++;
+    idx++;
+    min = min * idx;
   }
 }
 

@@ -1,28 +1,17 @@
 /**
- *  Sum All Primes
+ *  Smallest Common Multiple
  * 
- *  A prime number is a whole number greater than 1 with exactly two divisors: 1 and itself. 
- * For example, 2 is a prime number because it is only divisible by 1 and 2. 
- * In contrast, 4 is not prime since it is divisible by 1, 2 and 4.
- * 
- * Rewrite sumPrimes so it returns the sum of all prime numbers that are less than or equal to num.
+ *  Find the smallest common multiple of the provided parameters that can be evenly divided by both, 
+ *  as well as by all sequential numbers in the range between these parameters.
+ *  The range will be an array of two numbers that will not necessarily be in numerical order.
+ *  
+ *  For example, if given 1 and 3, 
+ *  find the smallest common multiple of both 1 and 3 that is also evenly 
+ *  divisible by all numbers between 1 and 3. The answer here would be 6.
  */
 
-function sumPrimes(num) {
-  let sum = 0;
-  for(let i = 2; i <= num; i++){
-    if(isPrime(i)){
-      sum += i
-    }
-  }
-  return sum;
+function smallestCommons(arr) {
+  return arr;
 }
 
-const isPrime = num => {
-  for(let i = 2; i < num; i++) {
-      if(num % i === 0) return false;
-  }
-  return num > 1;
-}
-
-console.log(sumPrimes(10));
+console.log(smallestCommons([1,5]));

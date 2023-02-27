@@ -11,7 +11,22 @@
  */
 
 function smallestCommons(arr) {
-  return arr;
+  let sorted = arr.sort((a,b) => a-b);
+  let nums = [];
+
+  for(let num = sorted[0]; num <= sorted[1]; num++){
+    nums.push(num);
+  }
+  let min = nums[0];
+  let passed = false;
+
+  while(!passed){
+    if(nums.map(num => min % num == 0).every(item => item )){
+      passed = true;
+      return min;
+    }
+    min++;
+  }
 }
 
-console.log(smallestCommons([1,5]));
+console.log(smallestCommons([1,3]));

@@ -8,7 +8,16 @@
  */
 
 function dropElements(arr, func) {
-  return arr;
+  let bypass = false;
+  let ref = [];
+  for(let item of arr){
+    if(func(item) || bypass ){
+      bypass = true;
+      ref.push(item)
+    }
+  }
+  return ref;
 }
 
-console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));
+console.log(dropElements([0, 1, 0, 1], function(n) {return n === 1;}));
+console.log(dropElements([1, 2, 3, 4], function(n) {return n > 5;}));

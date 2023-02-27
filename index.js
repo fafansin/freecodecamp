@@ -1,23 +1,21 @@
 /**
- *  Drop it
+ *  Steamroller
  * 
- *  Given the array arr, iterate through and remove each element starting from the first element (the 0 index) 
- *  until the function func returns true when the iterated element is passed through it.
- * 
- *  Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
+ *  Flatten a nested array. You must account for varying levels of nesting.rwise, arr should be returned as an empty array.
  */
 
-function dropElements(arr, func) {
-  let bypass = false;
-  let ref = [];
+function steamrollArray(arr, flat = []) {
   for(let item of arr){
-    if(func(item) || bypass ){
-      bypass = true;
-      ref.push(item)
+    if(Array.isArray(item)){
+      steamrollArray(item, flat);
+    }else{
+      flat.push(item);
+      console.log(item)
     }
   }
-  return ref;
+  return flat;
 }
 
-console.log(dropElements([0, 1, 0, 1], function(n) {return n === 1;}));
-console.log(dropElements([1, 2, 3, 4], function(n) {return n > 5;}));
+
+
+console.log(steamrollArray([1, [2], [3, [[4]]]]));

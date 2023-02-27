@@ -1,34 +1,14 @@
 /**
- *  Smallest Common Multiple
+ *  Drop it
  * 
- *  Find the smallest common multiple of the provided parameters that can be evenly divided by both, 
- *  as well as by all sequential numbers in the range between these parameters.
- *  The range will be an array of two numbers that will not necessarily be in numerical order.
- *  
- *  For example, if given 1 and 3, 
- *  find the smallest common multiple of both 1 and 3 that is also evenly 
- *  divisible by all numbers between 1 and 3. The answer here would be 6.
+ *  Given the array arr, iterate through and remove each element starting from the first element (the 0 index) 
+ *  until the function func returns true when the iterated element is passed through it.
+ * 
+ *  Then return the rest of the array once the condition is satisfied, otherwise, arr should be returned as an empty array.
  */
 
-function smallestCommons(arr) {
-  let sorted = arr.sort((a,b) => a-b);
-  let nums = [];
-
-  for(let num = sorted[0]; num <= sorted[1]; num++){
-    nums.push(num);
-  }
-  let idx = 0;
-  let min = nums[0];
-  let passed = false;
-
-  while(!passed){
-    if(nums.map(num => min % num == 0).every(item => item )){
-      passed = true;
-      return min;
-    }
-    idx++;
-    min = min * idx;
-  }
+function dropElements(arr, func) {
+  return arr;
 }
 
-console.log(smallestCommons([1,3]));
+console.log(dropElements([1, 2, 3], function(n) {return n < 3; }));

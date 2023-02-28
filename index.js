@@ -9,8 +9,17 @@
  *  Calling this returned function with a single argument will then return the sum:
  */
 
-function addTogether() {
-  return false;
+function addTogether(...args) {
+  if(!args.every(item => typeof item == 'number')){
+    return undefined;
+  }
+  return (args.length > 1) ? args.reduce((sum, num) => sum += num, 0) : y => addTogether(args[0], y)
 }
 
-console.log(addTogether(2,3));
+function checker(item){
+  return typeof item == 'number';
+}
+
+
+// console.log(addTogether("2")(2));
+console.log(addTogether("2"));

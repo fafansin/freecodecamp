@@ -1,25 +1,23 @@
 /**
- *  Arguments Optional
+ *  Make a Person
  * 
- *  Create a function that sums two arguments together. If only one argument is provided, 
- *  then return a function that expects one argument and returns the sum.
- * 
- *  For example, addTogether(2, 3) should return 5, and addTogether(2) should return a function.
- * 
- *  Calling this returned function with a single argument will then return the sum:
+ *  Fill in the object constructor with the following methods below:
+ *  getFirstName()
+ *  getLastName()
+ *  getFullName()
+ *  setFirstName(first)
+ *  setLastName(last)
+ *  setFullName(firstAndLast)
  */
 
-function addTogether(...args) {
-  if(!args.every(item => typeof item == 'number')){
-    return undefined;
-  }
-  return (args.length > 1) ? args.reduce((sum, num) => sum += num, 0) : y => addTogether(args[0], y)
-}
+const Person = function(firstAndLast) {
+  // Only change code below this line
+  // Complete the method below and implement the others similarly
+  this.getFullName = function() {
+    return "";
+  };
+  return firstAndLast;
+};
 
-function checker(item){
-  return typeof item == 'number';
-}
-
-
-// console.log(addTogether("2")(2));
-console.log(addTogether("2"));
+const bob = new Person('Bob Ross');
+console.log(bob.getFullName());

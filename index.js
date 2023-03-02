@@ -13,7 +13,14 @@
  */
 
 function rot13(str) {
-  return str;
+  const alpha = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ';
+  let ref = '';
+  for(let item of str){
+    let index = alpha.indexOf(item);
+    ref += index === -1 ? item : alpha[index + 13];
+  }
+  return ref;
 }
 
 console.log(rot13("SERR PBQR PNZC"));
+console.log(rot13("SERR CVMMN!"));

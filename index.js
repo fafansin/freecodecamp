@@ -12,7 +12,12 @@
  */
 
 function palindrome(str) {
-  return true;
+  str = str.replace(/[^A-Za-z-0-9]/ig, '').toLowerCase();
+  let str2 = str.split('').reverse().join('')
+  console.log(str);
+  return str == str2;
 }
 
-palindrome("eye");
+console.log(palindrome("_eye"));
+console.log(palindrome("My age is 0, 0 si ega ym."));
+console.log(palindrome("1 eye for of 1 eye."));
